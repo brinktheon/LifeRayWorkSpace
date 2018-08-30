@@ -1,0 +1,9 @@
+Bundle-Name: AutoDetailsService-api
+Bundle-SymbolicName: com.autodetservice.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.autodetservice.exception,\
+	com.autodetservice.model,\
+	com.autodetservice.service,\
+	com.autodetservice.service.persistence
+-includeresource: META-INF/service.xml=../AutoDetailsService-service/service.xml

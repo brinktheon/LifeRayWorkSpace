@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.autodetservice.model.AutoDetails">
+		<field name="uuid" type="String" />
+		<field name="autodetailId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="Model" type="String" />
+		<field name="VIN" type="String" />
+		<field name="Year" type="int" />
+		<field name="Manufacturer" type="String" />
+		<field name="Bodystyle" type="String" />
+	</model>
+</model-hints>
