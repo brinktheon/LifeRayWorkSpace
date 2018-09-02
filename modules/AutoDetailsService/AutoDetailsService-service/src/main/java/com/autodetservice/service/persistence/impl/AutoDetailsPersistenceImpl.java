@@ -1480,6 +1480,1129 @@ public class AutoDetailsPersistenceImpl extends BasePersistenceImpl<AutoDetails>
 	private static final String _FINDER_COLUMN_UUID_C_UUID_2 = "autoDetails.uuid = ? AND ";
 	private static final String _FINDER_COLUMN_UUID_C_UUID_3 = "(autoDetails.uuid IS NULL OR autoDetails.uuid = '') AND ";
 	private static final String _FINDER_COLUMN_UUID_C_COMPANYID_2 = "autoDetails.companyId = ?";
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_M_U = new FinderPath(AutoDetailsModelImpl.ENTITY_CACHE_ENABLED,
+			AutoDetailsModelImpl.FINDER_CACHE_ENABLED, AutoDetailsImpl.class,
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByM_U",
+			new String[] {
+				Long.class.getName(), String.class.getName(),
+				
+			Integer.class.getName(), Integer.class.getName(),
+				OrderByComparator.class.getName()
+			});
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_M_U = new FinderPath(AutoDetailsModelImpl.ENTITY_CACHE_ENABLED,
+			AutoDetailsModelImpl.FINDER_CACHE_ENABLED, AutoDetailsImpl.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByM_U",
+			new String[] { Long.class.getName(), String.class.getName() },
+			AutoDetailsModelImpl.USERID_COLUMN_BITMASK |
+			AutoDetailsModelImpl.MODEL_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_M_U = new FinderPath(AutoDetailsModelImpl.ENTITY_CACHE_ENABLED,
+			AutoDetailsModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByM_U",
+			new String[] { Long.class.getName(), String.class.getName() });
+
+	/**
+	 * Returns all the auto detailses where userId = &#63; and Model = &#63;.
+	 *
+	 * @param userId the user ID
+	 * @param Model the model
+	 * @return the matching auto detailses
+	 */
+	@Override
+	public List<AutoDetails> findByM_U(long userId, String Model) {
+		return findByM_U(userId, Model, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+			null);
+	}
+
+	/**
+	 * Returns a range of all the auto detailses where userId = &#63; and Model = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link AutoDetailsModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param userId the user ID
+	 * @param Model the model
+	 * @param start the lower bound of the range of auto detailses
+	 * @param end the upper bound of the range of auto detailses (not inclusive)
+	 * @return the range of matching auto detailses
+	 */
+	@Override
+	public List<AutoDetails> findByM_U(long userId, String Model, int start,
+		int end) {
+		return findByM_U(userId, Model, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the auto detailses where userId = &#63; and Model = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link AutoDetailsModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param userId the user ID
+	 * @param Model the model
+	 * @param start the lower bound of the range of auto detailses
+	 * @param end the upper bound of the range of auto detailses (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching auto detailses
+	 */
+	@Override
+	public List<AutoDetails> findByM_U(long userId, String Model, int start,
+		int end, OrderByComparator<AutoDetails> orderByComparator) {
+		return findByM_U(userId, Model, start, end, orderByComparator, true);
+	}
+
+	/**
+	 * Returns an ordered range of all the auto detailses where userId = &#63; and Model = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link AutoDetailsModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param userId the user ID
+	 * @param Model the model
+	 * @param start the lower bound of the range of auto detailses
+	 * @param end the upper bound of the range of auto detailses (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param retrieveFromCache whether to retrieve from the finder cache
+	 * @return the ordered range of matching auto detailses
+	 */
+	@Override
+	public List<AutoDetails> findByM_U(long userId, String Model, int start,
+		int end, OrderByComparator<AutoDetails> orderByComparator,
+		boolean retrieveFromCache) {
+		boolean pagination = true;
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+				(orderByComparator == null)) {
+			pagination = false;
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_M_U;
+			finderArgs = new Object[] { userId, Model };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_M_U;
+			finderArgs = new Object[] {
+					userId, Model,
+					
+					start, end, orderByComparator
+				};
+		}
+
+		List<AutoDetails> list = null;
+
+		if (retrieveFromCache) {
+			list = (List<AutoDetails>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (AutoDetails autoDetails : list) {
+					if ((userId != autoDetails.getUserId()) ||
+							!Objects.equals(Model, autoDetails.getModel())) {
+						list = null;
+
+						break;
+					}
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler query = null;
+
+			if (orderByComparator != null) {
+				query = new StringBundler(4 +
+						(orderByComparator.getOrderByFields().length * 2));
+			}
+			else {
+				query = new StringBundler(4);
+			}
+
+			query.append(_SQL_SELECT_AUTODETAILS_WHERE);
+
+			query.append(_FINDER_COLUMN_M_U_USERID_2);
+
+			boolean bindModel = false;
+
+			if (Model == null) {
+				query.append(_FINDER_COLUMN_M_U_MODEL_1);
+			}
+			else if (Model.equals(StringPool.BLANK)) {
+				query.append(_FINDER_COLUMN_M_U_MODEL_3);
+			}
+			else {
+				bindModel = true;
+
+				query.append(_FINDER_COLUMN_M_U_MODEL_2);
+			}
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator);
+			}
+			else
+			 if (pagination) {
+				query.append(AutoDetailsModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(userId);
+
+				if (bindModel) {
+					qPos.add(Model);
+				}
+
+				if (!pagination) {
+					list = (List<AutoDetails>)QueryUtil.list(q, getDialect(),
+							start, end, false);
+
+					Collections.sort(list);
+
+					list = Collections.unmodifiableList(list);
+				}
+				else {
+					list = (List<AutoDetails>)QueryUtil.list(q, getDialect(),
+							start, end);
+				}
+
+				cacheResult(list);
+
+				finderCache.putResult(finderPath, finderArgs, list);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first auto details in the ordered set where userId = &#63; and Model = &#63;.
+	 *
+	 * @param userId the user ID
+	 * @param Model the model
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching auto details
+	 * @throws NoSuchAutoDetailsException if a matching auto details could not be found
+	 */
+	@Override
+	public AutoDetails findByM_U_First(long userId, String Model,
+		OrderByComparator<AutoDetails> orderByComparator)
+		throws NoSuchAutoDetailsException {
+		AutoDetails autoDetails = fetchByM_U_First(userId, Model,
+				orderByComparator);
+
+		if (autoDetails != null) {
+			return autoDetails;
+		}
+
+		StringBundler msg = new StringBundler(6);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("userId=");
+		msg.append(userId);
+
+		msg.append(", Model=");
+		msg.append(Model);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchAutoDetailsException(msg.toString());
+	}
+
+	/**
+	 * Returns the first auto details in the ordered set where userId = &#63; and Model = &#63;.
+	 *
+	 * @param userId the user ID
+	 * @param Model the model
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching auto details, or <code>null</code> if a matching auto details could not be found
+	 */
+	@Override
+	public AutoDetails fetchByM_U_First(long userId, String Model,
+		OrderByComparator<AutoDetails> orderByComparator) {
+		List<AutoDetails> list = findByM_U(userId, Model, 0, 1,
+				orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last auto details in the ordered set where userId = &#63; and Model = &#63;.
+	 *
+	 * @param userId the user ID
+	 * @param Model the model
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching auto details
+	 * @throws NoSuchAutoDetailsException if a matching auto details could not be found
+	 */
+	@Override
+	public AutoDetails findByM_U_Last(long userId, String Model,
+		OrderByComparator<AutoDetails> orderByComparator)
+		throws NoSuchAutoDetailsException {
+		AutoDetails autoDetails = fetchByM_U_Last(userId, Model,
+				orderByComparator);
+
+		if (autoDetails != null) {
+			return autoDetails;
+		}
+
+		StringBundler msg = new StringBundler(6);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("userId=");
+		msg.append(userId);
+
+		msg.append(", Model=");
+		msg.append(Model);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchAutoDetailsException(msg.toString());
+	}
+
+	/**
+	 * Returns the last auto details in the ordered set where userId = &#63; and Model = &#63;.
+	 *
+	 * @param userId the user ID
+	 * @param Model the model
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching auto details, or <code>null</code> if a matching auto details could not be found
+	 */
+	@Override
+	public AutoDetails fetchByM_U_Last(long userId, String Model,
+		OrderByComparator<AutoDetails> orderByComparator) {
+		int count = countByM_U(userId, Model);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<AutoDetails> list = findByM_U(userId, Model, count - 1, count,
+				orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the auto detailses before and after the current auto details in the ordered set where userId = &#63; and Model = &#63;.
+	 *
+	 * @param autodetailId the primary key of the current auto details
+	 * @param userId the user ID
+	 * @param Model the model
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next auto details
+	 * @throws NoSuchAutoDetailsException if a auto details with the primary key could not be found
+	 */
+	@Override
+	public AutoDetails[] findByM_U_PrevAndNext(long autodetailId, long userId,
+		String Model, OrderByComparator<AutoDetails> orderByComparator)
+		throws NoSuchAutoDetailsException {
+		AutoDetails autoDetails = findByPrimaryKey(autodetailId);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			AutoDetails[] array = new AutoDetailsImpl[3];
+
+			array[0] = getByM_U_PrevAndNext(session, autoDetails, userId,
+					Model, orderByComparator, true);
+
+			array[1] = autoDetails;
+
+			array[2] = getByM_U_PrevAndNext(session, autoDetails, userId,
+					Model, orderByComparator, false);
+
+			return array;
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected AutoDetails getByM_U_PrevAndNext(Session session,
+		AutoDetails autoDetails, long userId, String Model,
+		OrderByComparator<AutoDetails> orderByComparator, boolean previous) {
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(5 +
+					(orderByComparator.getOrderByConditionFields().length * 3) +
+					(orderByComparator.getOrderByFields().length * 3));
+		}
+		else {
+			query = new StringBundler(4);
+		}
+
+		query.append(_SQL_SELECT_AUTODETAILS_WHERE);
+
+		query.append(_FINDER_COLUMN_M_U_USERID_2);
+
+		boolean bindModel = false;
+
+		if (Model == null) {
+			query.append(_FINDER_COLUMN_M_U_MODEL_1);
+		}
+		else if (Model.equals(StringPool.BLANK)) {
+			query.append(_FINDER_COLUMN_M_U_MODEL_3);
+		}
+		else {
+			bindModel = true;
+
+			query.append(_FINDER_COLUMN_M_U_MODEL_2);
+		}
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				query.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			query.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						query.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC);
+					}
+					else {
+						query.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+		else {
+			query.append(AutoDetailsModelImpl.ORDER_BY_JPQL);
+		}
+
+		String sql = query.toString();
+
+		Query q = session.createQuery(sql);
+
+		q.setFirstResult(0);
+		q.setMaxResults(2);
+
+		QueryPos qPos = QueryPos.getInstance(q);
+
+		qPos.add(userId);
+
+		if (bindModel) {
+			qPos.add(Model);
+		}
+
+		if (orderByComparator != null) {
+			Object[] values = orderByComparator.getOrderByConditionValues(autoDetails);
+
+			for (Object value : values) {
+				qPos.add(value);
+			}
+		}
+
+		List<AutoDetails> list = q.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
+	 * Removes all the auto detailses where userId = &#63; and Model = &#63; from the database.
+	 *
+	 * @param userId the user ID
+	 * @param Model the model
+	 */
+	@Override
+	public void removeByM_U(long userId, String Model) {
+		for (AutoDetails autoDetails : findByM_U(userId, Model,
+				QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
+			remove(autoDetails);
+		}
+	}
+
+	/**
+	 * Returns the number of auto detailses where userId = &#63; and Model = &#63;.
+	 *
+	 * @param userId the user ID
+	 * @param Model the model
+	 * @return the number of matching auto detailses
+	 */
+	@Override
+	public int countByM_U(long userId, String Model) {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_M_U;
+
+		Object[] finderArgs = new Object[] { userId, Model };
+
+		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(3);
+
+			query.append(_SQL_COUNT_AUTODETAILS_WHERE);
+
+			query.append(_FINDER_COLUMN_M_U_USERID_2);
+
+			boolean bindModel = false;
+
+			if (Model == null) {
+				query.append(_FINDER_COLUMN_M_U_MODEL_1);
+			}
+			else if (Model.equals(StringPool.BLANK)) {
+				query.append(_FINDER_COLUMN_M_U_MODEL_3);
+			}
+			else {
+				bindModel = true;
+
+				query.append(_FINDER_COLUMN_M_U_MODEL_2);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(userId);
+
+				if (bindModel) {
+					qPos.add(Model);
+				}
+
+				count = (Long)q.uniqueResult();
+
+				finderCache.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_M_U_USERID_2 = "autoDetails.userId = ? AND ";
+	private static final String _FINDER_COLUMN_M_U_MODEL_1 = "autoDetails.Model IS NULL";
+	private static final String _FINDER_COLUMN_M_U_MODEL_2 = "autoDetails.Model = ?";
+	private static final String _FINDER_COLUMN_M_U_MODEL_3 = "(autoDetails.Model IS NULL OR autoDetails.Model = '')";
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_Y_U = new FinderPath(AutoDetailsModelImpl.ENTITY_CACHE_ENABLED,
+			AutoDetailsModelImpl.FINDER_CACHE_ENABLED, AutoDetailsImpl.class,
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByY_U",
+			new String[] {
+				Long.class.getName(), Integer.class.getName(),
+				
+			Integer.class.getName(), Integer.class.getName(),
+				OrderByComparator.class.getName()
+			});
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_Y_U = new FinderPath(AutoDetailsModelImpl.ENTITY_CACHE_ENABLED,
+			AutoDetailsModelImpl.FINDER_CACHE_ENABLED, AutoDetailsImpl.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByY_U",
+			new String[] { Long.class.getName(), Integer.class.getName() },
+			AutoDetailsModelImpl.USERID_COLUMN_BITMASK |
+			AutoDetailsModelImpl.YEAR_COLUMN_BITMASK |
+			AutoDetailsModelImpl.MODEL_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_Y_U = new FinderPath(AutoDetailsModelImpl.ENTITY_CACHE_ENABLED,
+			AutoDetailsModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByY_U",
+			new String[] { Long.class.getName(), Integer.class.getName() });
+
+	/**
+	 * Returns all the auto detailses where userId = &#63; and Year = &#63;.
+	 *
+	 * @param userId the user ID
+	 * @param Year the year
+	 * @return the matching auto detailses
+	 */
+	@Override
+	public List<AutoDetails> findByY_U(long userId, int Year) {
+		return findByY_U(userId, Year, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+			null);
+	}
+
+	/**
+	 * Returns a range of all the auto detailses where userId = &#63; and Year = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link AutoDetailsModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param userId the user ID
+	 * @param Year the year
+	 * @param start the lower bound of the range of auto detailses
+	 * @param end the upper bound of the range of auto detailses (not inclusive)
+	 * @return the range of matching auto detailses
+	 */
+	@Override
+	public List<AutoDetails> findByY_U(long userId, int Year, int start, int end) {
+		return findByY_U(userId, Year, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the auto detailses where userId = &#63; and Year = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link AutoDetailsModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param userId the user ID
+	 * @param Year the year
+	 * @param start the lower bound of the range of auto detailses
+	 * @param end the upper bound of the range of auto detailses (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching auto detailses
+	 */
+	@Override
+	public List<AutoDetails> findByY_U(long userId, int Year, int start,
+		int end, OrderByComparator<AutoDetails> orderByComparator) {
+		return findByY_U(userId, Year, start, end, orderByComparator, true);
+	}
+
+	/**
+	 * Returns an ordered range of all the auto detailses where userId = &#63; and Year = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link AutoDetailsModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param userId the user ID
+	 * @param Year the year
+	 * @param start the lower bound of the range of auto detailses
+	 * @param end the upper bound of the range of auto detailses (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param retrieveFromCache whether to retrieve from the finder cache
+	 * @return the ordered range of matching auto detailses
+	 */
+	@Override
+	public List<AutoDetails> findByY_U(long userId, int Year, int start,
+		int end, OrderByComparator<AutoDetails> orderByComparator,
+		boolean retrieveFromCache) {
+		boolean pagination = true;
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+				(orderByComparator == null)) {
+			pagination = false;
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_Y_U;
+			finderArgs = new Object[] { userId, Year };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_Y_U;
+			finderArgs = new Object[] {
+					userId, Year,
+					
+					start, end, orderByComparator
+				};
+		}
+
+		List<AutoDetails> list = null;
+
+		if (retrieveFromCache) {
+			list = (List<AutoDetails>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (AutoDetails autoDetails : list) {
+					if ((userId != autoDetails.getUserId()) ||
+							(Year != autoDetails.getYear())) {
+						list = null;
+
+						break;
+					}
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler query = null;
+
+			if (orderByComparator != null) {
+				query = new StringBundler(4 +
+						(orderByComparator.getOrderByFields().length * 2));
+			}
+			else {
+				query = new StringBundler(4);
+			}
+
+			query.append(_SQL_SELECT_AUTODETAILS_WHERE);
+
+			query.append(_FINDER_COLUMN_Y_U_USERID_2);
+
+			query.append(_FINDER_COLUMN_Y_U_YEAR_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator);
+			}
+			else
+			 if (pagination) {
+				query.append(AutoDetailsModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(userId);
+
+				qPos.add(Year);
+
+				if (!pagination) {
+					list = (List<AutoDetails>)QueryUtil.list(q, getDialect(),
+							start, end, false);
+
+					Collections.sort(list);
+
+					list = Collections.unmodifiableList(list);
+				}
+				else {
+					list = (List<AutoDetails>)QueryUtil.list(q, getDialect(),
+							start, end);
+				}
+
+				cacheResult(list);
+
+				finderCache.putResult(finderPath, finderArgs, list);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first auto details in the ordered set where userId = &#63; and Year = &#63;.
+	 *
+	 * @param userId the user ID
+	 * @param Year the year
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching auto details
+	 * @throws NoSuchAutoDetailsException if a matching auto details could not be found
+	 */
+	@Override
+	public AutoDetails findByY_U_First(long userId, int Year,
+		OrderByComparator<AutoDetails> orderByComparator)
+		throws NoSuchAutoDetailsException {
+		AutoDetails autoDetails = fetchByY_U_First(userId, Year,
+				orderByComparator);
+
+		if (autoDetails != null) {
+			return autoDetails;
+		}
+
+		StringBundler msg = new StringBundler(6);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("userId=");
+		msg.append(userId);
+
+		msg.append(", Year=");
+		msg.append(Year);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchAutoDetailsException(msg.toString());
+	}
+
+	/**
+	 * Returns the first auto details in the ordered set where userId = &#63; and Year = &#63;.
+	 *
+	 * @param userId the user ID
+	 * @param Year the year
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching auto details, or <code>null</code> if a matching auto details could not be found
+	 */
+	@Override
+	public AutoDetails fetchByY_U_First(long userId, int Year,
+		OrderByComparator<AutoDetails> orderByComparator) {
+		List<AutoDetails> list = findByY_U(userId, Year, 0, 1, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last auto details in the ordered set where userId = &#63; and Year = &#63;.
+	 *
+	 * @param userId the user ID
+	 * @param Year the year
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching auto details
+	 * @throws NoSuchAutoDetailsException if a matching auto details could not be found
+	 */
+	@Override
+	public AutoDetails findByY_U_Last(long userId, int Year,
+		OrderByComparator<AutoDetails> orderByComparator)
+		throws NoSuchAutoDetailsException {
+		AutoDetails autoDetails = fetchByY_U_Last(userId, Year,
+				orderByComparator);
+
+		if (autoDetails != null) {
+			return autoDetails;
+		}
+
+		StringBundler msg = new StringBundler(6);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("userId=");
+		msg.append(userId);
+
+		msg.append(", Year=");
+		msg.append(Year);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchAutoDetailsException(msg.toString());
+	}
+
+	/**
+	 * Returns the last auto details in the ordered set where userId = &#63; and Year = &#63;.
+	 *
+	 * @param userId the user ID
+	 * @param Year the year
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching auto details, or <code>null</code> if a matching auto details could not be found
+	 */
+	@Override
+	public AutoDetails fetchByY_U_Last(long userId, int Year,
+		OrderByComparator<AutoDetails> orderByComparator) {
+		int count = countByY_U(userId, Year);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<AutoDetails> list = findByY_U(userId, Year, count - 1, count,
+				orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the auto detailses before and after the current auto details in the ordered set where userId = &#63; and Year = &#63;.
+	 *
+	 * @param autodetailId the primary key of the current auto details
+	 * @param userId the user ID
+	 * @param Year the year
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next auto details
+	 * @throws NoSuchAutoDetailsException if a auto details with the primary key could not be found
+	 */
+	@Override
+	public AutoDetails[] findByY_U_PrevAndNext(long autodetailId, long userId,
+		int Year, OrderByComparator<AutoDetails> orderByComparator)
+		throws NoSuchAutoDetailsException {
+		AutoDetails autoDetails = findByPrimaryKey(autodetailId);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			AutoDetails[] array = new AutoDetailsImpl[3];
+
+			array[0] = getByY_U_PrevAndNext(session, autoDetails, userId, Year,
+					orderByComparator, true);
+
+			array[1] = autoDetails;
+
+			array[2] = getByY_U_PrevAndNext(session, autoDetails, userId, Year,
+					orderByComparator, false);
+
+			return array;
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected AutoDetails getByY_U_PrevAndNext(Session session,
+		AutoDetails autoDetails, long userId, int Year,
+		OrderByComparator<AutoDetails> orderByComparator, boolean previous) {
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(5 +
+					(orderByComparator.getOrderByConditionFields().length * 3) +
+					(orderByComparator.getOrderByFields().length * 3));
+		}
+		else {
+			query = new StringBundler(4);
+		}
+
+		query.append(_SQL_SELECT_AUTODETAILS_WHERE);
+
+		query.append(_FINDER_COLUMN_Y_U_USERID_2);
+
+		query.append(_FINDER_COLUMN_Y_U_YEAR_2);
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				query.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			query.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						query.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC);
+					}
+					else {
+						query.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+		else {
+			query.append(AutoDetailsModelImpl.ORDER_BY_JPQL);
+		}
+
+		String sql = query.toString();
+
+		Query q = session.createQuery(sql);
+
+		q.setFirstResult(0);
+		q.setMaxResults(2);
+
+		QueryPos qPos = QueryPos.getInstance(q);
+
+		qPos.add(userId);
+
+		qPos.add(Year);
+
+		if (orderByComparator != null) {
+			Object[] values = orderByComparator.getOrderByConditionValues(autoDetails);
+
+			for (Object value : values) {
+				qPos.add(value);
+			}
+		}
+
+		List<AutoDetails> list = q.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
+	 * Removes all the auto detailses where userId = &#63; and Year = &#63; from the database.
+	 *
+	 * @param userId the user ID
+	 * @param Year the year
+	 */
+	@Override
+	public void removeByY_U(long userId, int Year) {
+		for (AutoDetails autoDetails : findByY_U(userId, Year,
+				QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
+			remove(autoDetails);
+		}
+	}
+
+	/**
+	 * Returns the number of auto detailses where userId = &#63; and Year = &#63;.
+	 *
+	 * @param userId the user ID
+	 * @param Year the year
+	 * @return the number of matching auto detailses
+	 */
+	@Override
+	public int countByY_U(long userId, int Year) {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_Y_U;
+
+		Object[] finderArgs = new Object[] { userId, Year };
+
+		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(3);
+
+			query.append(_SQL_COUNT_AUTODETAILS_WHERE);
+
+			query.append(_FINDER_COLUMN_Y_U_USERID_2);
+
+			query.append(_FINDER_COLUMN_Y_U_YEAR_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(userId);
+
+				qPos.add(Year);
+
+				count = (Long)q.uniqueResult();
+
+				finderCache.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_Y_U_USERID_2 = "autoDetails.userId = ? AND ";
+	private static final String _FINDER_COLUMN_Y_U_YEAR_2 = "autoDetails.Year = ?";
 
 	public AutoDetailsPersistenceImpl() {
 		setModelClass(AutoDetails.class);
@@ -1807,6 +2930,24 @@ public class AutoDetailsPersistenceImpl extends BasePersistenceImpl<AutoDetails>
 			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_UUID_C,
 				args);
 
+			args = new Object[] {
+					autoDetailsModelImpl.getUserId(),
+					autoDetailsModelImpl.getModel()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_M_U, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_M_U,
+				args);
+
+			args = new Object[] {
+					autoDetailsModelImpl.getUserId(),
+					autoDetailsModelImpl.getYear()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_Y_U, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_Y_U,
+				args);
+
 			finderCache.removeResult(FINDER_PATH_COUNT_ALL, FINDER_ARGS_EMPTY);
 			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_ALL,
 				FINDER_ARGS_EMPTY);
@@ -1848,6 +2989,48 @@ public class AutoDetailsPersistenceImpl extends BasePersistenceImpl<AutoDetails>
 
 				finderCache.removeResult(FINDER_PATH_COUNT_BY_UUID_C, args);
 				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_UUID_C,
+					args);
+			}
+
+			if ((autoDetailsModelImpl.getColumnBitmask() &
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_M_U.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						autoDetailsModelImpl.getOriginalUserId(),
+						autoDetailsModelImpl.getOriginalModel()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_M_U, args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_M_U,
+					args);
+
+				args = new Object[] {
+						autoDetailsModelImpl.getUserId(),
+						autoDetailsModelImpl.getModel()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_M_U, args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_M_U,
+					args);
+			}
+
+			if ((autoDetailsModelImpl.getColumnBitmask() &
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_Y_U.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						autoDetailsModelImpl.getOriginalUserId(),
+						autoDetailsModelImpl.getOriginalYear()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_Y_U, args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_Y_U,
+					args);
+
+				args = new Object[] {
+						autoDetailsModelImpl.getUserId(),
+						autoDetailsModelImpl.getYear()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_Y_U, args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_Y_U,
 					args);
 			}
 		}

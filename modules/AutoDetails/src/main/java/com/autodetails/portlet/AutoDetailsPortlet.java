@@ -1,6 +1,7 @@
 package com.autodetails.portlet;
 
 import com.autodetails.constants.AutoDetailsPortletKeys;
+
 import com.autodetservice.model.AutoDetails;
 import com.autodetservice.service.AutoDetailsLocalServiceUtil;
 import com.liferay.counter.kernel.service.CounterLocalServiceUtil;
@@ -31,7 +32,7 @@ import org.osgi.service.component.annotations.Component;
 		"com.liferay.portlet.instanceable=true",
 		"javax.portlet.display-name=AutoDetails Portlet",
 		"javax.portlet.init-param.template-path=/",
-		"javax.portlet.init-param.view-template=/view.jsp",
+		"javax.portlet.init-param.view-template=/addModel.jsp",
 		"javax.portlet.name=" + AutoDetailsPortletKeys.AutoDetails,
 		"javax.portlet.resource-bundle=content.Language",
 		"javax.portlet.security-role-ref=power-user,user"
@@ -41,6 +42,7 @@ import org.osgi.service.component.annotations.Component;
 public class AutoDetailsPortlet extends MVCPortlet {
 	
 	private Log logger =  LogFactoryUtil.getLog(AutoDetailsPortlet.class);
+	 
 	
 	@ProcessAction(name = "autoDetailsSubmit")
 	public void autoDetailsSubmit(ActionRequest actionRequest, ActionResponse actionResponse) throws IOException, PortletException{
@@ -82,7 +84,7 @@ public class AutoDetailsPortlet extends MVCPortlet {
 			
 			AutoDetailsLocalServiceUtil.addAutoDetails(autoDetails);
 			logger.info("---------------------SUCCESS-------------------------");
-			actionResponse.setRenderParameter("mvcPath", "/details.jsp");
+			//actionResponse.setRenderParameter("mvcPath", "/details.jsp");
 			
 		} catch(Exception e){
 			e.printStackTrace();

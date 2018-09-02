@@ -247,6 +247,21 @@ public class AutoDetailsLocalServiceUtil {
 		return getService().findAll();
 	}
 
+	public static java.util.List<com.autodetservice.model.AutoDetails> findSomething(
+		int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<com.autodetservice.model.AutoDetails> orderByComparator) {
+		return getService().findSomething(start, end, orderByComparator);
+	}
+
+	public static java.util.List<com.autodetservice.model.AutoDetails> findSomething(
+		int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<com.autodetservice.model.AutoDetails> orderByComparator,
+		boolean retrieveFromCache) {
+		return getService()
+				   .findSomething(start, end, orderByComparator,
+			retrieveFromCache);
+	}
+
 	/**
 	* Returns a range of all the auto detailses.
 	*
@@ -291,6 +306,27 @@ public class AutoDetailsLocalServiceUtil {
 		return getService()
 				   .getAutoDetailsesByUuidAndCompanyId(uuid, companyId, start,
 			end, orderByComparator);
+	}
+
+	public static java.util.List<com.autodetservice.model.AutoDetails> getBY_U(
+		long userId, int year) {
+		return getService().getBY_U(userId, year);
+	}
+
+	public static java.util.List<com.autodetservice.model.AutoDetails> getByM_U(
+		long userId, java.lang.String model) {
+		return getService().getByM_U(userId, model);
+	}
+
+	public static java.util.List<com.autodetservice.model.AutoDetails> getEntries(
+		long userId, java.lang.String model, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<com.autodetservice.model.AutoDetails> obc) {
+		return getService().getEntries(userId, model, start, end, obc);
+	}
+
+	public static java.util.List<com.autodetservice.model.AutoDetails> lastFind(
+		int start, int end) {
+		return getService().lastFind(start, end);
 	}
 
 	/**

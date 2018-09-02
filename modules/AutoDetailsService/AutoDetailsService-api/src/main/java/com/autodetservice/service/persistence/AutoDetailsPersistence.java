@@ -372,6 +372,293 @@ public interface AutoDetailsPersistence extends BasePersistence<AutoDetails> {
 	public int countByUuid_C(java.lang.String uuid, long companyId);
 
 	/**
+	* Returns all the auto detailses where userId = &#63; and Model = &#63;.
+	*
+	* @param userId the user ID
+	* @param Model the model
+	* @return the matching auto detailses
+	*/
+	public java.util.List<AutoDetails> findByM_U(long userId,
+		java.lang.String Model);
+
+	/**
+	* Returns a range of all the auto detailses where userId = &#63; and Model = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link AutoDetailsModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param userId the user ID
+	* @param Model the model
+	* @param start the lower bound of the range of auto detailses
+	* @param end the upper bound of the range of auto detailses (not inclusive)
+	* @return the range of matching auto detailses
+	*/
+	public java.util.List<AutoDetails> findByM_U(long userId,
+		java.lang.String Model, int start, int end);
+
+	/**
+	* Returns an ordered range of all the auto detailses where userId = &#63; and Model = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link AutoDetailsModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param userId the user ID
+	* @param Model the model
+	* @param start the lower bound of the range of auto detailses
+	* @param end the upper bound of the range of auto detailses (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching auto detailses
+	*/
+	public java.util.List<AutoDetails> findByM_U(long userId,
+		java.lang.String Model, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<AutoDetails> orderByComparator);
+
+	/**
+	* Returns an ordered range of all the auto detailses where userId = &#63; and Model = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link AutoDetailsModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param userId the user ID
+	* @param Model the model
+	* @param start the lower bound of the range of auto detailses
+	* @param end the upper bound of the range of auto detailses (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching auto detailses
+	*/
+	public java.util.List<AutoDetails> findByM_U(long userId,
+		java.lang.String Model, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<AutoDetails> orderByComparator,
+		boolean retrieveFromCache);
+
+	/**
+	* Returns the first auto details in the ordered set where userId = &#63; and Model = &#63;.
+	*
+	* @param userId the user ID
+	* @param Model the model
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching auto details
+	* @throws NoSuchAutoDetailsException if a matching auto details could not be found
+	*/
+	public AutoDetails findByM_U_First(long userId, java.lang.String Model,
+		com.liferay.portal.kernel.util.OrderByComparator<AutoDetails> orderByComparator)
+		throws NoSuchAutoDetailsException;
+
+	/**
+	* Returns the first auto details in the ordered set where userId = &#63; and Model = &#63;.
+	*
+	* @param userId the user ID
+	* @param Model the model
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching auto details, or <code>null</code> if a matching auto details could not be found
+	*/
+	public AutoDetails fetchByM_U_First(long userId, java.lang.String Model,
+		com.liferay.portal.kernel.util.OrderByComparator<AutoDetails> orderByComparator);
+
+	/**
+	* Returns the last auto details in the ordered set where userId = &#63; and Model = &#63;.
+	*
+	* @param userId the user ID
+	* @param Model the model
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching auto details
+	* @throws NoSuchAutoDetailsException if a matching auto details could not be found
+	*/
+	public AutoDetails findByM_U_Last(long userId, java.lang.String Model,
+		com.liferay.portal.kernel.util.OrderByComparator<AutoDetails> orderByComparator)
+		throws NoSuchAutoDetailsException;
+
+	/**
+	* Returns the last auto details in the ordered set where userId = &#63; and Model = &#63;.
+	*
+	* @param userId the user ID
+	* @param Model the model
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching auto details, or <code>null</code> if a matching auto details could not be found
+	*/
+	public AutoDetails fetchByM_U_Last(long userId, java.lang.String Model,
+		com.liferay.portal.kernel.util.OrderByComparator<AutoDetails> orderByComparator);
+
+	/**
+	* Returns the auto detailses before and after the current auto details in the ordered set where userId = &#63; and Model = &#63;.
+	*
+	* @param autodetailId the primary key of the current auto details
+	* @param userId the user ID
+	* @param Model the model
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next auto details
+	* @throws NoSuchAutoDetailsException if a auto details with the primary key could not be found
+	*/
+	public AutoDetails[] findByM_U_PrevAndNext(long autodetailId, long userId,
+		java.lang.String Model,
+		com.liferay.portal.kernel.util.OrderByComparator<AutoDetails> orderByComparator)
+		throws NoSuchAutoDetailsException;
+
+	/**
+	* Removes all the auto detailses where userId = &#63; and Model = &#63; from the database.
+	*
+	* @param userId the user ID
+	* @param Model the model
+	*/
+	public void removeByM_U(long userId, java.lang.String Model);
+
+	/**
+	* Returns the number of auto detailses where userId = &#63; and Model = &#63;.
+	*
+	* @param userId the user ID
+	* @param Model the model
+	* @return the number of matching auto detailses
+	*/
+	public int countByM_U(long userId, java.lang.String Model);
+
+	/**
+	* Returns all the auto detailses where userId = &#63; and Year = &#63;.
+	*
+	* @param userId the user ID
+	* @param Year the year
+	* @return the matching auto detailses
+	*/
+	public java.util.List<AutoDetails> findByY_U(long userId, int Year);
+
+	/**
+	* Returns a range of all the auto detailses where userId = &#63; and Year = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link AutoDetailsModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param userId the user ID
+	* @param Year the year
+	* @param start the lower bound of the range of auto detailses
+	* @param end the upper bound of the range of auto detailses (not inclusive)
+	* @return the range of matching auto detailses
+	*/
+	public java.util.List<AutoDetails> findByY_U(long userId, int Year,
+		int start, int end);
+
+	/**
+	* Returns an ordered range of all the auto detailses where userId = &#63; and Year = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link AutoDetailsModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param userId the user ID
+	* @param Year the year
+	* @param start the lower bound of the range of auto detailses
+	* @param end the upper bound of the range of auto detailses (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching auto detailses
+	*/
+	public java.util.List<AutoDetails> findByY_U(long userId, int Year,
+		int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<AutoDetails> orderByComparator);
+
+	/**
+	* Returns an ordered range of all the auto detailses where userId = &#63; and Year = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link AutoDetailsModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param userId the user ID
+	* @param Year the year
+	* @param start the lower bound of the range of auto detailses
+	* @param end the upper bound of the range of auto detailses (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching auto detailses
+	*/
+	public java.util.List<AutoDetails> findByY_U(long userId, int Year,
+		int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<AutoDetails> orderByComparator,
+		boolean retrieveFromCache);
+
+	/**
+	* Returns the first auto details in the ordered set where userId = &#63; and Year = &#63;.
+	*
+	* @param userId the user ID
+	* @param Year the year
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching auto details
+	* @throws NoSuchAutoDetailsException if a matching auto details could not be found
+	*/
+	public AutoDetails findByY_U_First(long userId, int Year,
+		com.liferay.portal.kernel.util.OrderByComparator<AutoDetails> orderByComparator)
+		throws NoSuchAutoDetailsException;
+
+	/**
+	* Returns the first auto details in the ordered set where userId = &#63; and Year = &#63;.
+	*
+	* @param userId the user ID
+	* @param Year the year
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching auto details, or <code>null</code> if a matching auto details could not be found
+	*/
+	public AutoDetails fetchByY_U_First(long userId, int Year,
+		com.liferay.portal.kernel.util.OrderByComparator<AutoDetails> orderByComparator);
+
+	/**
+	* Returns the last auto details in the ordered set where userId = &#63; and Year = &#63;.
+	*
+	* @param userId the user ID
+	* @param Year the year
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching auto details
+	* @throws NoSuchAutoDetailsException if a matching auto details could not be found
+	*/
+	public AutoDetails findByY_U_Last(long userId, int Year,
+		com.liferay.portal.kernel.util.OrderByComparator<AutoDetails> orderByComparator)
+		throws NoSuchAutoDetailsException;
+
+	/**
+	* Returns the last auto details in the ordered set where userId = &#63; and Year = &#63;.
+	*
+	* @param userId the user ID
+	* @param Year the year
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching auto details, or <code>null</code> if a matching auto details could not be found
+	*/
+	public AutoDetails fetchByY_U_Last(long userId, int Year,
+		com.liferay.portal.kernel.util.OrderByComparator<AutoDetails> orderByComparator);
+
+	/**
+	* Returns the auto detailses before and after the current auto details in the ordered set where userId = &#63; and Year = &#63;.
+	*
+	* @param autodetailId the primary key of the current auto details
+	* @param userId the user ID
+	* @param Year the year
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next auto details
+	* @throws NoSuchAutoDetailsException if a auto details with the primary key could not be found
+	*/
+	public AutoDetails[] findByY_U_PrevAndNext(long autodetailId, long userId,
+		int Year,
+		com.liferay.portal.kernel.util.OrderByComparator<AutoDetails> orderByComparator)
+		throws NoSuchAutoDetailsException;
+
+	/**
+	* Removes all the auto detailses where userId = &#63; and Year = &#63; from the database.
+	*
+	* @param userId the user ID
+	* @param Year the year
+	*/
+	public void removeByY_U(long userId, int Year);
+
+	/**
+	* Returns the number of auto detailses where userId = &#63; and Year = &#63;.
+	*
+	* @param userId the user ID
+	* @param Year the year
+	* @return the number of matching auto detailses
+	*/
+	public int countByY_U(long userId, int Year);
+
+	/**
 	* Caches the auto details in the entity cache if it is enabled.
 	*
 	* @param autoDetails the auto details

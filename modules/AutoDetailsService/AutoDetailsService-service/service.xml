@@ -35,6 +35,21 @@
 		<order by="asc">
 			<order-column name="Model" />
 		</order>
+		
+		<!-- Finder Method -->
+		
+		<finder name="M_U" return-type="Collection">
+			<finder-column name="userId"/>
+			<finder-column name="Model"/>
+		</finder>
+		
+		<finder name="Y_U" return-type="Collection">
+			<finder-column name="userId"/>
+			<finder-column name="Year"/>
+		</finder>
 
 	</entity>
 </service-builder>
+
+
+

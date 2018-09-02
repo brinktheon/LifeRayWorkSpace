@@ -1,0 +1,10 @@
+Bundle-Name: PersonDetailsService-api
+Bundle-SymbolicName: com.personservice.api
+Bundle-Version: 1.0.0
+Export-Package: \
+	com.personservice.exception,\
+	com.personservice.model,\
+	com.personservice.service,\
+	com.personservice.service.persistence,\
+	com.personservice.comparators
+-includeresource: META-INF/service.xml=../PersonDetailsService-service/service.xml

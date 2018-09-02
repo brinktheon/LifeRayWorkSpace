@@ -121,10 +121,12 @@ public class AutoDetailsModelImpl extends BaseModelImpl<AutoDetails>
 	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.autodetservice.service.util.ServiceProps.get(
 				"value.object.column.bitmask.enabled.com.autodetservice.model.AutoDetails"),
 			true);
-	public static final long COMPANYID_COLUMN_BITMASK = 1L;
-	public static final long GROUPID_COLUMN_BITMASK = 2L;
-	public static final long UUID_COLUMN_BITMASK = 4L;
-	public static final long MODEL_COLUMN_BITMASK = 8L;
+	public static final long MODEL_COLUMN_BITMASK = 1L;
+	public static final long YEAR_COLUMN_BITMASK = 2L;
+	public static final long COMPANYID_COLUMN_BITMASK = 4L;
+	public static final long GROUPID_COLUMN_BITMASK = 8L;
+	public static final long USERID_COLUMN_BITMASK = 16L;
+	public static final long UUID_COLUMN_BITMASK = 32L;
 
 	/**
 	 * Converts the soap model instance into a normal model instance.
@@ -406,6 +408,14 @@ public class AutoDetailsModelImpl extends BaseModelImpl<AutoDetails>
 
 	@Override
 	public void setUserId(long userId) {
+		_columnBitmask |= USERID_COLUMN_BITMASK;
+
+		if (!_setOriginalUserId) {
+			_setOriginalUserId = true;
+
+			_originalUserId = _userId;
+		}
+
 		_userId = userId;
 	}
 
@@ -423,6 +433,10 @@ public class AutoDetailsModelImpl extends BaseModelImpl<AutoDetails>
 
 	@Override
 	public void setUserUuid(String userUuid) {
+	}
+
+	public long getOriginalUserId() {
+		return _originalUserId;
 	}
 
 	@JSON
@@ -484,7 +498,15 @@ public class AutoDetailsModelImpl extends BaseModelImpl<AutoDetails>
 	public void setModel(String Model) {
 		_columnBitmask = -1L;
 
+		if (_originalModel == null) {
+			_originalModel = _Model;
+		}
+
 		_Model = Model;
+	}
+
+	public String getOriginalModel() {
+		return GetterUtil.getString(_originalModel);
 	}
 
 	@JSON
@@ -511,7 +533,19 @@ public class AutoDetailsModelImpl extends BaseModelImpl<AutoDetails>
 
 	@Override
 	public void setYear(int Year) {
+		_columnBitmask |= YEAR_COLUMN_BITMASK;
+
+		if (!_setOriginalYear) {
+			_setOriginalYear = true;
+
+			_originalYear = _Year;
+		}
+
 		_Year = Year;
+	}
+
+	public int getOriginalYear() {
+		return _originalYear;
 	}
 
 	@JSON
@@ -666,7 +700,17 @@ public class AutoDetailsModelImpl extends BaseModelImpl<AutoDetails>
 
 		autoDetailsModelImpl._setOriginalCompanyId = false;
 
+		autoDetailsModelImpl._originalUserId = autoDetailsModelImpl._userId;
+
+		autoDetailsModelImpl._setOriginalUserId = false;
+
 		autoDetailsModelImpl._setModifiedDate = false;
+
+		autoDetailsModelImpl._originalModel = autoDetailsModelImpl._Model;
+
+		autoDetailsModelImpl._originalYear = autoDetailsModelImpl._Year;
+
+		autoDetailsModelImpl._setOriginalYear = false;
 
 		autoDetailsModelImpl._columnBitmask = 0;
 	}
@@ -869,13 +913,18 @@ public class AutoDetailsModelImpl extends BaseModelImpl<AutoDetails>
 	private long _originalCompanyId;
 	private boolean _setOriginalCompanyId;
 	private long _userId;
+	private long _originalUserId;
+	private boolean _setOriginalUserId;
 	private String _userName;
 	private Date _createDate;
 	private Date _modifiedDate;
 	private boolean _setModifiedDate;
 	private String _Model;
+	private String _originalModel;
 	private String _VIN;
 	private int _Year;
+	private int _originalYear;
+	private boolean _setOriginalYear;
 	private String _Manufacturer;
 	private String _Bodystyle;
 	private long _columnBitmask;

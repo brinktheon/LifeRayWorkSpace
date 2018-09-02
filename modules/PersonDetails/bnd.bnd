@@ -1,0 +1,6 @@
+Bundle-Name: PersonDetails
+Bundle-SymbolicName: com.person
+Bundle-Version: 1.0.0
+Export-Package: \
+	com.person.constants,\
+	com.personservice.comparators

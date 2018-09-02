@@ -1,0 +1,6 @@
+Bundle-Name: TestModule
+Bundle-SymbolicName: TestModule
+Bundle-Version: 1.0.0
+Export-Package: \
+	TestModule.constants,\
+	com.autodetservice.comparator

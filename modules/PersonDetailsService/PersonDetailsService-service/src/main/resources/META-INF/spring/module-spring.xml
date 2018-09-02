@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="com.personservice.service.impl.PersonDetailsLocalServiceImpl" id="com.personservice.service.PersonDetailsLocalService" />
+	<bean class="com.personservice.service.impl.PersonDetailsServiceImpl" id="com.personservice.service.PersonDetailsService" />
+	<bean class="com.personservice.service.persistence.impl.PersonDetailsPersistenceImpl" id="com.personservice.service.persistence.PersonDetailsPersistence" parent="basePersistence" />
+</beans>

@@ -261,6 +261,23 @@ public class AutoDetailsLocalServiceWrapper implements AutoDetailsLocalService,
 		return _autoDetailsLocalService.findAll();
 	}
 
+	@Override
+	public java.util.List<com.autodetservice.model.AutoDetails> findSomething(
+		int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<com.autodetservice.model.AutoDetails> orderByComparator) {
+		return _autoDetailsLocalService.findSomething(start, end,
+			orderByComparator);
+	}
+
+	@Override
+	public java.util.List<com.autodetservice.model.AutoDetails> findSomething(
+		int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<com.autodetservice.model.AutoDetails> orderByComparator,
+		boolean retrieveFromCache) {
+		return _autoDetailsLocalService.findSomething(start, end,
+			orderByComparator, retrieveFromCache);
+	}
+
 	/**
 	* Returns a range of all the auto detailses.
 	*
@@ -308,6 +325,32 @@ public class AutoDetailsLocalServiceWrapper implements AutoDetailsLocalService,
 		com.liferay.portal.kernel.util.OrderByComparator<com.autodetservice.model.AutoDetails> orderByComparator) {
 		return _autoDetailsLocalService.getAutoDetailsesByUuidAndCompanyId(uuid,
 			companyId, start, end, orderByComparator);
+	}
+
+	@Override
+	public java.util.List<com.autodetservice.model.AutoDetails> getBY_U(
+		long userId, int year) {
+		return _autoDetailsLocalService.getBY_U(userId, year);
+	}
+
+	@Override
+	public java.util.List<com.autodetservice.model.AutoDetails> getByM_U(
+		long userId, java.lang.String model) {
+		return _autoDetailsLocalService.getByM_U(userId, model);
+	}
+
+	@Override
+	public java.util.List<com.autodetservice.model.AutoDetails> getEntries(
+		long userId, java.lang.String model, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<com.autodetservice.model.AutoDetails> obc) {
+		return _autoDetailsLocalService.getEntries(userId, model, start, end,
+			obc);
+	}
+
+	@Override
+	public java.util.List<com.autodetservice.model.AutoDetails> lastFind(
+		int start, int end) {
+		return _autoDetailsLocalService.lastFind(start, end);
 	}
 
 	/**

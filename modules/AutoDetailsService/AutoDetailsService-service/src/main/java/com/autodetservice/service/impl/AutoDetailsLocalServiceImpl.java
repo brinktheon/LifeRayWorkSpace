@@ -16,9 +16,13 @@ package com.autodetservice.service.impl;
 
 import java.util.List;
 
+import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+
+
 import com.autodetservice.model.AutoDetails;
+import com.autodetservice.model.impl.AutoDetailsModelImpl;
 import com.autodetservice.service.base.AutoDetailsLocalServiceBaseImpl;
-import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.util.OrderByComparator;
 
 import aQute.bnd.annotation.ProviderType;
 
@@ -47,4 +51,54 @@ public class AutoDetailsLocalServiceImpl extends AutoDetailsLocalServiceBaseImpl
 	public List<AutoDetails> findAll() {
 		return this.autoDetailsPersistence.findAll();
 	}
+	
+	public List<AutoDetails> getEntries(
+			long userId, String model, int start, int end,
+			OrderByComparator<AutoDetails> obc) {
+
+			return autoDetailsPersistence.findByM_U(userId, model, start, end, obc);
+	}
+	
+	public List<AutoDetails> getByM_U(
+			long userId, String model) {
+
+			return autoDetailsPersistence.findByM_U(userId, model);
+	}
+	
+	public List<AutoDetails> getBY_U(
+			long userId, int year) {
+
+			return autoDetailsPersistence.findByY_U(userId, year);
+	}
+	
+	public List<AutoDetails> findSomething(int start, int end,
+			OrderByComparator<AutoDetails> orderByComparator){
+		
+		return autoDetailsPersistence.findAll(start, end, orderByComparator, false);
+	}
+	
+	public List<AutoDetails> lastFind(int start, int end){
+		
+		return autoDetailsPersistence.findAll(
+				start, 
+				end,  
+				OrderByComparatorFactoryUtil.create(AutoDetailsModelImpl.TABLE_NAME, "Model", "asc"), 
+				false
+				);
+	}
+
+	@Override
+	public List<AutoDetails> findSomething(int start, int end, OrderByComparator<AutoDetails> orderByComparator,
+			boolean retrieveFromCache) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
+
+
+
+
+
+
+
+

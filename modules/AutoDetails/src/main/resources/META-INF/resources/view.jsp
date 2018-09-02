@@ -26,14 +26,15 @@ emptyResultsMessage="No Records Found">
 	
 <liferay-ui:search-container-results >
 <%
-	DisplayTerms displayTerms =searchContainer.getDisplayTerms();
+	DisplayTerms displayTerms = searchContainer.getDisplayTerms();
 	String keywords = displayTerms.getKeywords(); 
 	List<AutoDetails> employeeList =  Collections.emptyList();;
 	if (displayTerms.isAdvancedSearch()) {//Advance Search
 		employeeList = AutoDetailHelper.getEmployee(year, model, displayTerms.isAndOperator());
 		searchContainer.setTotal(employeeList.size());
 		searchContainer.setResults(ListUtil.subList(employeeList,searchContainer.getStart(),searchContainer.getEnd()));
-	}  else if(!Validator.isBlank(keywords)){//Basic Search
+	}  
+	else if(!Validator.isBlank(keywords)){//Basic Search
 		employeeList = AutoDetailHelper.getEmployeeByKeyWord(keywords);
 		searchContainer.setTotal(employeeList.size());
 		searchContainer.setResults(ListUtil.subList(employeeList,searchContainer.getStart(),searchContainer.getEnd()));

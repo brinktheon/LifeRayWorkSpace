@@ -227,6 +227,13 @@ public interface AutoDetailsLocalService extends BaseLocalService,
 
 	public List<AutoDetails> findAll();
 
+	public List<AutoDetails> findSomething(int start, int end,
+		OrderByComparator<AutoDetails> orderByComparator);
+
+	public List<AutoDetails> findSomething(int start, int end,
+		OrderByComparator<AutoDetails> orderByComparator,
+		boolean retrieveFromCache);
+
 	/**
 	* Returns a range of all the auto detailses.
 	*
@@ -266,6 +273,18 @@ public interface AutoDetailsLocalService extends BaseLocalService,
 	public List<AutoDetails> getAutoDetailsesByUuidAndCompanyId(
 		java.lang.String uuid, long companyId, int start, int end,
 		OrderByComparator<AutoDetails> orderByComparator);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<AutoDetails> getBY_U(long userId, int year);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<AutoDetails> getByM_U(long userId, java.lang.String model);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<AutoDetails> getEntries(long userId, java.lang.String model,
+		int start, int end, OrderByComparator<AutoDetails> obc);
+
+	public List<AutoDetails> lastFind(int start, int end);
 
 	/**
 	* Returns the number of rows matching the dynamic query.

@@ -1,7 +1,8 @@
 Bundle-Name: AutoDetailsService-api
 Bundle-SymbolicName: com.autodetservice.api
 Bundle-Version: 1.0.0
-Export-Package:\
+Export-Package: \
+	com.autodetservice.comparator,\
 	com.autodetservice.exception,\
 	com.autodetservice.model,\
 	com.autodetservice.service,\
