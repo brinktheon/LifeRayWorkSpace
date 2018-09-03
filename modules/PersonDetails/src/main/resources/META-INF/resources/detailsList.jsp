@@ -1,20 +1,12 @@
-<%@page import="java.util.List"%>
-<%@page import="com.personservice.model.PersonDetails"%>
-<%@page import="com.personservice.service.PersonDetailsLocalServiceUtil"%>
-<%@page import="com.liferay.portal.kernel.util.ListUtil"%>
-<%@page import="javax.portlet.PortletURL"%>
-<%@page import="com.liferay.portal.kernel.portlet.PortletURLUtil"%>
-<%@page import= "java.util.Objects" %>
-
 <%@ include file="init.jsp"%>
 
 <%
     PortletURL myViewURL = null;
 	String displayStyle = ParamUtil.getString(request, "displayStyle", "descriptive");
 
-	String orderByCol = ParamUtil.getString(request, "orderByCol", "FirstName");
+	String orderByCol = ParamUtil.getString(request, "orderByCol", "firstName-key");
 	if (orderByCol.equals("")){
-		orderByCol = ParamUtil.getString(request, "orderByCol", "Age");
+		orderByCol = ParamUtil.getString(request, "orderByCol", "age-key");
 	}
 	
 	boolean orderByAsc = false;
@@ -27,7 +19,7 @@
 	
 	OrderByComparator<PersonDetails> orderByComparator =  null;
 	
-	if (orderByCol.equals("FirstName")) {
+	if (orderByCol.equals("firstName-key")) {
 	    orderByComparator = new PersonDetailComparatorByFirstName(orderByAsc);
 	} 
 	else {
@@ -44,7 +36,7 @@
 
 
 <aui:form action="<%= viewPageURL %>" method="post" name="fm">
-<liferay-portlet:renderURLParams varImpl="viewPageURL" />
+
 
 <liferay-frontend:management-bar
     includeCheckBox="<%= true %>"
@@ -67,7 +59,7 @@
 		 <liferay-frontend:management-bar-sort
 			  orderByCol="<%= orderByCol %>"
 			  orderByType="<%= orderByType %>"
-			  orderColumns='<%= new String[] {"FirstName", "Age"} %>'
+			  orderColumns='<%= new String[] {"firstName-key", "age-key"} %>'
 			  portletURL="<%=PortletURLUtil.clone(viewPageURL, renderResponse) %>"
 		/>
 		</liferay-frontend:management-bar-filters>
@@ -76,7 +68,7 @@
 </liferay-frontend:management-bar>
 
 <liferay-ui:search-container 
-		delta="5"
+		delta="10"
 		displayTerms="<%= new DisplayTerms(renderRequest) %>"
 		iteratorURL="<%= viewPageURL %>" 
 		emptyResultsMessage="No Records Found"
@@ -112,43 +104,43 @@
 		keyProperty="autoDetailId" modelVar="currentFeedback">
 		<c:choose>
 			<c:when test='<%= Objects.equals(displayStyle, "descriptive") %>'>
-				<liferay-ui:search-container-column-icon name="Icon"
+				<liferay-ui:search-container-column-icon name="icon-key"
 					icon="quote-left"
 				/>
-				<liferay-ui:search-container-column-text name="FirstName"
+				<liferay-ui:search-container-column-text name="firstName-key"
 						property="firstName" />
-				<liferay-ui:search-container-column-text name="SecondName"
+				<liferay-ui:search-container-column-text name="secondName-key"
 						property="secondName" />
-				<liferay-ui:search-container-column-text name="Age"
+				<liferay-ui:search-container-column-text name="age-key"
 						property="age" />
-				<liferay-ui:search-container-column-text name="Specialty"
+				<liferay-ui:search-container-column-text name="specialty-key"
 						property="specialty" />
-				<liferay-ui:search-container-column-text name="Experience"
+				<liferay-ui:search-container-column-text name="experience-key"
 						property="experience" />
 			</c:when>
 			<c:when test='<%= Objects.equals(displayStyle, "list") %>'>
-				<liferay-ui:search-container-column-text name="FirstName"
+				<liferay-ui:search-container-column-text name="firstName-key"
 						property="firstName" />
-				<liferay-ui:search-container-column-text name="SecondName"
+				<liferay-ui:search-container-column-text name="secondName-key"
 						property="secondName" />
-				<liferay-ui:search-container-column-text name="Age"
+				<liferay-ui:search-container-column-text name="age-key"
 						property="age" />
-				<liferay-ui:search-container-column-text name="Specialty"
+				<liferay-ui:search-container-column-text name="specialty-key"
 						property="specialty" />
-				<liferay-ui:search-container-column-text name="Experience"
+				<liferay-ui:search-container-column-text name="experience-key"
 						property="experience" />
 			</c:when>
 			<c:when test='<%= Objects.equals(displayStyle, "icon") %>'>
 			
-				<liferay-ui:search-container-column-text name="FirstName"
+				<liferay-ui:search-container-column-text name="firstName-key"
 						property="firstName" />
-				<liferay-ui:search-container-column-text name="SecondName"
+				<liferay-ui:search-container-column-text name="secondName-key"
 						property="secondName" />
-				<liferay-ui:search-container-column-text name="Age"
+				<liferay-ui:search-container-column-text name="age-key"
 						property="age" />
-				<liferay-ui:search-container-column-text name="Specialty"
+				<liferay-ui:search-container-column-text name="specialty-key"
 						property="specialty" />
-				<liferay-ui:search-container-column-text name="Experience"
+				<liferay-ui:search-container-column-text name="experience-key"
 						property="experience" />
 			</c:when>
 		</c:choose>
